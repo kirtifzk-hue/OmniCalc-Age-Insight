@@ -1,0 +1,5 @@
+{
+  "name": "OmniCalc & Age Insight",
+  "description": "A versatile dual-mode application featuring a sleek standard calculator for daily math and an intelligent age calculator. The age calculator uses Gemini AI to provide fun historical facts and zodiac insights based on your birthdate.",
+  "requestFramePermissions": []
+}
