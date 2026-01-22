@@ -1,5 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import { Delete, RotateCcw, Equal } from 'lucide-react';
+import { Delete, Equal } from 'lucide-react';
+
+const Button = ({ 
+  label, 
+  onClick, 
+  className = "", 
+  icon = null 
+}: { 
+  label?: string; 
+  onClick: () => void; 
+  className?: string; 
+  icon?: React.ReactNode 
+}) => (
+  <button
+    onClick={onClick}
+    className={`
+      h-16 sm:h-20 rounded-2xl text-xl sm:text-2xl font-medium transition-all duration-150 active:scale-95 flex items-center justify-center shadow-sm select-none
+      ${className}
+    `}
+  >
+    {icon ? icon : label}
+  </button>
+);
 
 const StandardCalculator: React.FC = () => {
   const [display, setDisplay] = useState('0');
@@ -89,28 +111,6 @@ const StandardCalculator: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [display, equation, isNewNumber]);
-
-  const Button = ({ 
-    label, 
-    onClick, 
-    className = "", 
-    icon = null 
-  }: { 
-    label?: string; 
-    onClick: () => void; 
-    className?: string; 
-    icon?: React.ReactNode 
-  }) => (
-    <button
-      onClick={onClick}
-      className={`
-        h-16 sm:h-20 rounded-2xl text-xl sm:text-2xl font-medium transition-all duration-150 active:scale-95 flex items-center justify-center shadow-sm select-none
-        ${className}
-      `}
-    >
-      {icon ? icon : label}
-    </button>
-  );
 
   return (
     <div className="flex flex-col h-full max-w-md mx-auto">
